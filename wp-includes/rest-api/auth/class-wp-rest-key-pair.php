@@ -111,6 +111,7 @@ class WP_REST_Key_Pair {
 				),
 			),
 			'schema'   => array( $this, 'get_item_schema' ),
+            'permission_callback' => '__return_true',
 		);
 		register_rest_route( self::_NAMESPACE_, '/' . self::_REST_BASE_ . '/(?P<user_id>[\d]+)', $args );
 
@@ -126,6 +127,7 @@ class WP_REST_Key_Pair {
 					'validate_callback' => 'rest_validate_request_arg',
 				),
 			),
+            'permission_callback' => '__return_true',
 		);
 		register_rest_route( self::_NAMESPACE_, '/' . self::_REST_BASE_ . '/(?P<user_id>[\d]+)/revoke-all', $args );
 
@@ -148,6 +150,7 @@ class WP_REST_Key_Pair {
 					'validate_callback' => 'rest_validate_request_arg',
 				),
 			),
+            'permission_callback' => '__return_true',
 		);
 		register_rest_route( self::_NAMESPACE_, '/' . self::_REST_BASE_ . '/(?P<user_id>[\d]+)/(?P<api_key>[\w-]+)/revoke', $args );
 	}
